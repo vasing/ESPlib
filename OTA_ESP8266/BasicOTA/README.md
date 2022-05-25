@@ -1,6 +1,6 @@
 # Manual
 
-Board: ESP8266
+Board: ESP32
 
 ## Prerequisites
 
@@ -16,12 +16,12 @@ Python https://www.python.org/downloads/
 #define STAPSK  "1234"
 ```
 
-1. Change the Data in ```secure.h```.
+2. Change the Data in ```secure.h```.
 
-2. Flash ```BasicOTA.ino``` via USB initial.
+3. Flash ```BasicOTA.ino``` via USB initial.
 
 ---
 
-3. Add project related code.
+4. Add project related code.
 
-4. Flash with Arduino IDE via OTA by selecting the ESP-IP in ```Tools -> Port```.
+5. Flash with Arduino IDE via OTA by selecting the ESP-IP in ```Tools -> Port```.
