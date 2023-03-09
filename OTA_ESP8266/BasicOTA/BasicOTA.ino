@@ -9,6 +9,9 @@ const char* ssid = STASSID;
 const char* password = STAPSK;
 
 const int ESP_BUILTIN_LED = 2;
+unsigned long previousMillis = 0;  // will store last time LED was updated
+const long interval = 1000;  // interval at which to blink (milliseconds)
+int ledState = LOW;  // ledState used to set the LED
 
 void setup() {
   Serial.begin(115200);
@@ -57,9 +60,14 @@ void setup() {
 void loop() {
   ArduinoOTA.handle();
   
-  //Build-in LED for status feedback
-  digitalWrite(ESP_BUILTIN_LED, LOW);
-  delay(1000);
-  digitalWrite(ESP_BUILTIN_LED, HIGH);
-  delay(1000);
+//Here is the LED blinking section
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+  // save the last time you blinked the LED
+  previousMillis = currentMillis;
+  // if the LED is off turn it on and vice-versa:
+  ledState = not(ledState);
+  // set the LED with the ledState of the variable:
+  digitalWrite(ESP_BUILTIN_LED,  ledState);
+  } 
 }

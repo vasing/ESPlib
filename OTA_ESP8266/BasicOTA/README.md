@@ -1,6 +1,6 @@
 # Manual
 
-Board: ESP32
+Board: ESP8266
 
 ## Prerequisites
 
